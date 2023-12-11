@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CarrerController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\StudyplanController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ViaticController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +21,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('carrers',CarrerController::class);
+Route::resource('employees',EmployeeController::class);
+Route::resource('studyplans',StudyplanController::class);
+Route::resource('subjects',SubjectController::class);
+Route::resource('viatics',ViaticController::class);
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
